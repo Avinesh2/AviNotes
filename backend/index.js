@@ -6,10 +6,15 @@ import cors from "cors";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ 
-  origin: "http://localhost:5173", // Frontend URL
-  credentials: true // Allow cookies (important for JWT auth)
-}));
+const allowedOrigins = ["http://localhost:5173", "https://avi-notes.vercel.app"];
+
+app.use(
+  cors({
+    origin: allowedOrigins, // Allow multiple origins
+    credentials: true, // Important for sending cookies
+  })
+);
+
 
 dotenv.config();
 
