@@ -43,8 +43,13 @@ export const signin=async(req,res,next)=>{
         const token=jwt.sign({id:user._id},process.env.JWT_SECRET)
         user.password=undefined;
         res.cookie("access_token",token,
-            {httpOnly:true,
-            sameSite: "None", }
+            {
+                domain: "avinotes.onrender.com", // No protocol (https://), no trailing slash
+                path: "/",
+                httpOnly: true,
+                secure: true, // Required for HTTPS
+                sameSite: "None", // Required for cross-origin requests
+              }
         ).status(200).json({
             success:true,
             message:"User logged in successfully",
