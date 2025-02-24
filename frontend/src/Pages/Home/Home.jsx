@@ -90,7 +90,7 @@ const Home = () => {
 
         </div>
       </div>
-      <button className="absolute h-12 w-12 bottom-10 right-10 bg-primary hover:bg-blue-400 rounded-2xl cursor-pointer flex items-center justify-center" onClick={() => { setOpenEditModel({ isShown: true, type: "add", data: null }) }}>
+      <button className="fixed h-12 w-12 bottom-10 right-10 bg-primary hover:bg-blue-400 rounded-2xl cursor-pointer flex items-center justify-center" onClick={() => { setOpenEditModel({ isShown: true, type: "add", data: null }) }}>
         <MdAdd className="text-white text-2xl" />
       </button>
       <Modal isOpen={openEditModel.isShown}  contentLabel="" className={"flex justify-between w-[40%] max-md:w-[60%] max-sm:w-[80%] bg-white rounded-md mx-auto mt-14 p-5 overflow-scroll h-5/6"} style={{ overlay: { backgroundColor: "rgba(0,0,0,0.2)" } }}>
