@@ -4,7 +4,17 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 const app = express();
+//This is sent in JSON format, which is like a universal format to send structured data.
+//But Express (by default) doesn't understand JSON — unless you tell it to using:
+// If a user sends this data:
+
+// {
+//   "email": "avi@gmail.com",
+//   "password": "avi123"
+// }
+// Without express.json(), req.body will be undefined. The server won't understand the incoming data.
 app.use(express.json());
+//Without cookieParser(), req.cookies will be undefined, and you won’t be able to read user session data.
 app.use(cookieParser());
 const allowedOrigins = ["http://localhost:5173", "https://avi-notes.vercel.app"];
 

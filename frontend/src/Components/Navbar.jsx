@@ -33,16 +33,12 @@ const Navbar = () => {
     const { currentUser, loading, errorDispatch } = useSelector(state => state.user)
     const [userInfo, setUserInfo] = useState(null)
     useEffect(() => {
-      
-        if (currentUser === null ) {
+        if (currentUser === null) {
             setUserInfo("Guest")
             navigate('/login')
         }
         else {
-            
-            console.log(currentUser.user)
-           
-            setUserInfo(currentUser?.user?.username)
+            setUserInfo(currentUser?.user?.username || "Guest")
         }
     },[currentUser])
 
