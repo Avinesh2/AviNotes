@@ -34,7 +34,7 @@ const Home = () => {
   },[currentUser])
   const getAllNotes = async () => {
     try{
-      const res=await axios.get("https://avinotes.onrender.com/api/note/all",{withCredentials:true})
+      const res=await axios.get("http://localhost:3000/api/note/all",{withCredentials:true})
       if(res.data.success)
       {
         setAllNotes(res.data.notes)
@@ -57,7 +57,7 @@ const Home = () => {
   }
   const onDeleteNote=async(noteId)=>{
     try{
-      const res=await axios.delete("https://avinotes.onrender.com/api/note/delete/"+noteId,{withCredentials:true})
+      const res=await axios.delete("http://localhost:3000/api/note/delete/"+noteId,{withCredentials:true})
       if(res.data.success)
       {
         toast.success(res.data.message)

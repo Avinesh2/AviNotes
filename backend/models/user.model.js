@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true,
+        required: true, // <-- allow empty password for Google users
     },
     createdAt: {
         type: Date,

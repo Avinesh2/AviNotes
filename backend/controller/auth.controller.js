@@ -69,6 +69,13 @@ export const checkAuth=async(req,res)=>{
     if (!req.cookies.access_token) {
         return res.status(401).json({ success: false, message: "Unauthorized" });
     }
-    res.json({ success: true });
+    const token = req.cookies.access_token;
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    const user= await User.findById(decodedToken.id).select("-password");
+    if (!user) {
+        return res.status(401).json({ success: false, message: "Unauthorized" });
+    }
+
+    res.json({ success: true ,user});
 
 }

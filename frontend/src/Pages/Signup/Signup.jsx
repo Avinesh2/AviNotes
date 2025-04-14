@@ -33,7 +33,7 @@ const Signup = () => {
         setError('')
         try{
           setLoading(true)
-          const res=await axios.post("https://avinotes.onrender.com/api/auth/signup",{username:name,email,password},{withCredentials:true})
+          const res=await axios.post("http://localhost:3000/api/auth/signup",{username:name,email,password},{withCredentials:true})
           if(res.data.success){
             console.log(res.data)
             toast.success(res.data.message)

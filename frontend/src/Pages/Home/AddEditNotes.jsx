@@ -11,7 +11,7 @@ const AddEditNotes = ({ onClose,noteData,type,getAllNotes}) => {
     const editNote= async()=>{
         try{
             const noteId=noteData._id
-            const res=await axios.put("https://avinotes.onrender.com/api/note/edit/"+noteId,{title,content,tags},{withCredentials:true})
+            const res=await axios.put("http://localhost:3000/api/note/edit/"+noteId,{title,content,tags},{withCredentials:true})
             if(res.data.success)
             {
                 toast.success(res.data.message)
@@ -31,7 +31,7 @@ const AddEditNotes = ({ onClose,noteData,type,getAllNotes}) => {
     }
     const addNote= async()=>{
         try{
-            const res=await axios.post("https://avinotes.onrender.com/api/note/add/",{title,content,tags},{withCredentials:true})
+            const res=await axios.post("http://localhost:3000/api/note/add/",{title,content,tags},{withCredentials:true})
             if(res.data.success)
             {
                 toast.success(res.data.message)

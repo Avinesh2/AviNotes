@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { use } from 'react'
 import { useState } from 'react'
 import PasswordInput from '../../Components/Cards/PasswordInput'
 import { Link, useNavigate } from 'react-router-dom'
 import { validateEmail } from '../../Utils/helper'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { signInFailure, signInSuccess ,signInStart} from '../../redux/user/userSlice'
+import { signInFailure, signInSuccess, signInStart } from '../../redux/user/userSlice'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { FcGoogle } from 'react-icons/fc';
 const Login = () => {
+  const currentUser = useSelector((state) => state.user.currentUser);
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/')
+    }
+  }, [currentUser])
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:3000/api/auth/google";
+  };
   const loading = useSelector((state) => state.user.loading)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -30,11 +41,11 @@ const Login = () => {
     //login api Without withCredentials: true, cookies (like JWT tokens stored in httpOnly cookies) won't be sent to the backend.
     //Solution: withCredentials: true ensures that cookies are sent and received.
     try {
-      
+
       dispatch(signInStart())
       console.log("Login Started")
 
-      const res = await axios.post("https://avinotes.onrender.com/api/auth/signin", { email, password }, { withCredentials: true })
+      const res = await axios.post("http://localhost:3000/api/auth/signin", { email, password }, { withCredentials: true })
       console.log("Data Fetched")
       if (res.data.success) {
         toast.success(res.data.message)
@@ -76,7 +87,16 @@ const Login = () => {
           {error && <p className='text-red-500 text-xs text-center mt-4'>{error}</p>}
           <p className='text-slate-500 text-xs text-center mt-4'>Not registered yet ? {" "}
             <Link to={"/signup"} className='font-medium !text-primary !underline'>Create an account</Link></p>
+          
         </form>
+        <button
+            onClick={handleGoogleLogin}
+            className="flex items-center justify-center gap-3 w-full py-1 my-2 px-4 rounded-lg shadow-md border border-gray-300 hover:shadow-lg transition-all bg-white font-medium"
+          >
+            <FcGoogle className="text-xl" />
+            Sign in with Google
+          </button>
+
       </div>
     </div>
   )

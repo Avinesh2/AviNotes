@@ -3,6 +3,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import passport from "passport";
+import session from "express-session";
+import "./config/passport.js"; // your passport setup file
+dotenv.config();
 const app = express();
 //This is sent in JSON format, which is like a universal format to send structured data.
 //But Express (by default) doesn't understand JSON — unless you tell it to using:
@@ -46,6 +50,16 @@ app.listen(3000, () => {
 });
 
 //error handling ye krta agr response m koi error aata to isse hoke jaata
+app.use(session({
+  secret: process.env.SESSION_SECRET || "random_secret",
+  resave: false,
+  saveUninitialized: true,
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.use((err,req,res,next)=>{
   const statusCode=err.statusCode||500;
 

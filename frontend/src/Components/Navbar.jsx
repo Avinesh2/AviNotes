@@ -12,7 +12,7 @@ const Navbar = () => {
     const navigate = useNavigate()
     const checkAuthStatus = async () => {
       try {
-          const res = await axios.get('https://avinotes.onrender.com/api/auth/checkAuth', { withCredentials: true });
+          const res = await axios.get('http://localhost:3000/api/auth/checkAuth', { withCredentials: true });
           if (!res.data.success) {
             dispatch(signOutSuccess()); // Logout if no user data
             setUserInfo("Guest");
@@ -52,7 +52,7 @@ const Navbar = () => {
         try{
             dispatch(signOutStart())
             console.log("Logout Started")
-            const res=await axios.get("https://avinotes.onrender.com/api/auth/signout",{withCredentials:true})
+            const res=await axios.get("http://localhost:3000/api/auth/signout",{withCredentials:true})
             console.log("Data Fetched")
             console.log(res.data)
             if(res.data.success)
