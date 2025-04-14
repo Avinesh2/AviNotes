@@ -32,7 +32,6 @@ app.use(
 );
 
 
-dotenv.config();
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
   console.log("Connected to MongoDB");
@@ -52,14 +51,10 @@ app.listen(3000, () => {
 });
 
 //error handling ye krta agr response m koi error aata to isse hoke jaata
-app.use(session({
-  secret: process.env.SESSION_SECRET || "random_secret",
-  resave: false,
-  saveUninitialized: true,
-}));
+
 
 app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 app.use((err,req,res,next)=>{

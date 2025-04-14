@@ -35,11 +35,4 @@ passport.use(
   )
 );
 
-// optional if you're using session (not needed for JWT only)
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-passport.deserializeUser(async (id, done) => {
-  const user = await User.findById(id);
-  done(null, user);
-});
+
