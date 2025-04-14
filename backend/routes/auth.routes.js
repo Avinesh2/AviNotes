@@ -33,7 +33,7 @@ router.get(
       sameSite: "None",
     });
 
-    res.redirect("http://localhost:5173/google-success"); // or homepage
+    res.redirect("https://avi-notes.vercel.app/google-success"); 
   }
 );
 
