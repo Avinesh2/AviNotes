@@ -20,7 +20,7 @@ const app = express();
 app.use(express.json());
 //Without cookieParser(), req.cookies will be undefined, and you won’t be able to read user session data.
 app.use(cookieParser());
-const allowedOrigins = ["http://localhost:5173", "https://avi-notes.vercel.app"];
+const allowedOrigins = ["http://localhost:5173", "https://avinotes-1.onrender.com"];
 
 app.use(
   cors({

@@ -14,7 +14,7 @@ const GoogleRedirect = () => {
       dispatch(signInStart());
 
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/checkAuth", {
+        const res = await axios.get("https://avinotes.onrender.com/api/auth/checkAuth", {
           withCredentials: true,
         });
 

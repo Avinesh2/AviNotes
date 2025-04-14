@@ -18,7 +18,7 @@ const Login = () => {
     }
   }, [currentUser])
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/api/auth/google";
+    window.location.href = "https://avinotes.onrender.com/api/auth/google";
   };
   const loading = useSelector((state) => state.user.loading)
   const [email, setEmail] = useState('')
@@ -45,7 +45,7 @@ const Login = () => {
       dispatch(signInStart())
       console.log("Login Started")
 
-      const res = await axios.post("http://localhost:3000/api/auth/signin", { email, password }, { withCredentials: true })
+      const res = await axios.post("https://avinotes.onrender.com/api/auth/signin", { email, password }, { withCredentials: true })
       console.log("Data Fetched")
       if (res.data.success) {
         toast.success(res.data.message)

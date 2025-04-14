@@ -23,7 +23,7 @@ router.get(
     const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET);
     
     res.cookie("access_token", token, {
-      domain: "avinotes.onrender.com",
+      domain: "onrender.com",
       path: "/",
       httpOnly: true,
       secure: true,
