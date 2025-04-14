@@ -89,13 +89,13 @@ const Login = () => {
             <Link to={"/signup"} className='font-medium !text-primary !underline'>Create an account</Link></p>
           
         </form>
-        <button
+        {/* <button
             onClick={handleGoogleLogin}
             className="flex items-center justify-center gap-3 w-full py-1 my-2 px-4 rounded-lg shadow-md border border-gray-300 hover:shadow-lg transition-all bg-white font-medium"
           >
             <FcGoogle className="text-xl" />
             Sign in with Google
-          </button>
+          </button> */}
 
       </div>
     </div>
