@@ -5,7 +5,6 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 dotenv.config();
 import passport from "passport";
-import session from "express-session";
 
 import "./config/passport.js"; // your passport setup file
 
