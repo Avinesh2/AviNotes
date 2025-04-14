@@ -44,7 +44,7 @@ export const signin=async(req,res,next)=>{
         user.password=undefined;
         res.cookie("access_token",token,
             {
-                domain: "onrender.com", // No protocol (https://), no trailing slash
+                domain: ".onrender.com", // No protocol (https://), no trailing slash
                 path: "/",
                 httpOnly: true,
                 secure: true, // Required for HTTPS
