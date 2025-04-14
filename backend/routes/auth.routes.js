@@ -3,6 +3,9 @@ import { signup ,signin, signout, checkAuth} from '../controller/auth.controller
 import { verifyToken } from '../utils/verifyUser.js';
 const app=express();
 const router= express.Router();
+import dotenv from "dotenv";
+dotenv.config();
+
 
 // routes/google.routes.js
 
