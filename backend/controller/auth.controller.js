@@ -60,10 +60,16 @@ export const signin=async(req,res,next)=>{
 }
 
 export const signout=(req,res)=>{
-    res.clearCookie("access_token").status(200).json({
-        success:true,
-        message:"User logged out successfully"
-    })
+    res.clearCookie("access_token", {
+        domain: "avinotes.onrender.com",
+        path: "/",
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+      }).status(200).json({
+        success: true,
+        message: "User logged out successfully"
+      });
 }
 export const checkAuth=async(req,res)=>{
     if (!req.cookies.access_token) {
