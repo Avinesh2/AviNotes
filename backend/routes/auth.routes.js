@@ -24,7 +24,7 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/login", session: false }),
   (req, res) => {
     const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET);
-    res.clearCookie("access_token");
+    
 
     res.cookie("access_token", token, {
       domain: "avinotes.onrender.com",

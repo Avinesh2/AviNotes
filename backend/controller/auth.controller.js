@@ -61,7 +61,7 @@ export const signin=async(req,res,next)=>{
 
 export const signout=(req,res)=>{
     res.clearCookie("access_token", {
-        domain: "avinotes.onrender.com",
+        domain: ".avinotes.onrender.com",
         path: "/",
         httpOnly: true,
         secure: true,
