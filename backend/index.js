@@ -3,10 +3,12 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+dotenv.config();
 import passport from "passport";
 import session from "express-session";
+
 import "./config/passport.js"; // your passport setup file
-dotenv.config();
+
 const app = express();
 //This is sent in JSON format, which is like a universal format to send structured data.
 //But Express (by default) doesn't understand JSON — unless you tell it to using:
