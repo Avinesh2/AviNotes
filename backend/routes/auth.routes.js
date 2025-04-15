@@ -30,7 +30,7 @@ router.get(
       sameSite: "None",
     });
 
-    res.redirect("https://avinotes-1.onrender.com/google-success"); // or homepage
+    res.redirect("https://avi-notes.vercel.app/google-success"); // or homepage
   }
 );
 
