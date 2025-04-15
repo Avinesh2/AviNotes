@@ -124,6 +124,12 @@ const Login = () => {
             </button>
           </div>
         </form>
+        <div className="flex items-center justify-between">
+      
+          <Link to="/signup" className="font-medium text-primary hover:text-primary-dark">
+            Don't have an account? Sign up
+          </Link>
+          </div>
 
         <div className="mt-6">
           <div className="relative">
